@@ -20,16 +20,20 @@ export const Container = styled(TouchableOpacity) <ContainerProps>`
     align-items: center;
     justify-content: center;
 
-    border: 1.5px solid ${({ theme }) => theme.colors.text};
+    border-width:  ${({ isActive }) => isActive ? 0 : 1.5}px;
+    border-color: ${({ theme }) => theme.colors.text};
+    border-style: solid;
+    color: ${({ theme }) => theme.colors.text};
     border-radius: 5px;
 
     padding: 16px;
 
-    ${({ isActive, type }) => isActive === true && type === 'down' && css`
-        background-color: ${({ theme }) => theme.colors.attention_light};
-    `}
-    ${({ isActive, type }) => isActive === true && type === 'up' && css`
+    ${({ isActive, type }) => isActive && type === 'up' && css`
         background-color: ${({ theme }) => theme.colors.success_light};
+    `}
+
+    ${({ isActive, type }) => isActive && type === 'down' && css`
+        background-color: ${({ theme }) => theme.colors.attention_light};
     `}
 `;
 

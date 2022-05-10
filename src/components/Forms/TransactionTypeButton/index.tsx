@@ -18,8 +18,8 @@ const icons = {
 }
 
 export function TransactionTypeButton({
-    title,
     type,
+    title,
     isActive,
     ...rest
 }: Props) {
